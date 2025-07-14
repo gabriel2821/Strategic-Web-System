@@ -1,0 +1,149 @@
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.sidebar {
+    width: 60px;
+    transition: width 0.3s ease;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+.sidebar:hover {
+    width: 200px;
+}
+
+.sidebar .sidebar-title,
+.sidebar .link-text,
+.sidebar .export-to-sheet {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidebar:hover h4,
+.sidebar:hover .link-text,
+.sidebar:hover .export-to-sheet {
+    opacity: 1;
+}
+
+.sidebar .sidebar-toggle-icon {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    margin-left: 10px;
+    justify-content: center;
+}
+
+.sidebar:hover .sidebar-toggle-icon {
+    display: none;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .nav-link i {
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: absolute;
+        z-index: 1050;
+        background-color: #f8f9fa;
+        left: -200px;
+        width: 200px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebar.open h4,
+    .sidebar.open .link-text,
+    .sidebar.open .export-to-sheet {
+        opacity: 1;
+    }
+}
+
+main {
+    overflow-x: auto;
+    word-wrap: break-word;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #print-area, #print-area * {
+        visibility: visible;
+    }
+    #print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    .no-print {
+        display: none !important;
+    }
+}
+
+.nav li a:hover {
+    background-color: #1126e5;
+    color: white;
+    border-radius: 10px;
+}
+
+.table-row {
+    min-width: 1400px;
+}
+
+.table-row th {
+    text-align: center;
+}
+
+.table-row td {
+    border: 1px solid black;
+    white-space: normal !important;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+
+.table-row tbody tr:hover td {
+    background-color: #f1f1f1;
+}
+
+#message, #error {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 4px;
+    z-index: 1000;
+    position: relative;
+    display: none;
+}
+
+#message {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+#message .spinner {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+#error {
+    background-color: #f8d7da;
+    color: #721c24;
+}

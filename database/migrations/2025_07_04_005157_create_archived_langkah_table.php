@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('archived_langkah', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('teras_id')->constrained('archived_teras')->onDelete('cascade');
+            $table->string('name');
+            $table->string('description')->nullable();
+            $table->foreignId('archive_id')->constrained('archives')->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('archived_langkah');
+    }
+};
