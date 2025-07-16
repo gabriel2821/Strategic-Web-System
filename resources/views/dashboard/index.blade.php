@@ -2,7 +2,7 @@
 @section('title')
 @section('content')
     <div class="container mt-4">
-        <h2>Dashboard</h2>
+        <h1>Dashboard</h1>
 
         <!-- Filter by Teras -->
         <form method="GET" action="{{ route('dashboard') }}" class="mb-4">
